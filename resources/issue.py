@@ -33,13 +33,13 @@ class Issue(Resource):
         data = Issue.parser.parse_args()
 
         issue_title = data["issue_title"]
-        if issue_title is None:
+        if not issue_title:
             return {"error": "issue_title is required"}
         issue_text = data["issue_text"]
-        if issue_text is None:
+        if not issue_text:
             return {"error": "issue_text is required"}
         created_by = data["created_by"]
-        if created_by is None:
+        if not created_by:
             return {"error": "created_by is required"}
         assigned_to = data["assigned_to"] or ""
         status_text = data["status_text"] or ""
