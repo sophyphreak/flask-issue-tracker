@@ -82,7 +82,6 @@ class Issue(Resource):
 
         if not _open is None:
             _open = _open == 'True' or _open == 'true'
-
         if issue_title:
             issue.issue_title = issue_title
         if issue_text:
@@ -93,7 +92,7 @@ class Issue(Resource):
             issue.assigned_to = assigned_to
         if status_text:
             issue.status_text = status_text
-        if _open:
+        if not _open is None:
             issue._open = _open
         issue.updated_on = datetime.datetime.utcnow()
 
