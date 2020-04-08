@@ -1,6 +1,5 @@
 from db import db
 import datetime
-import arrow
 
 
 class IssueModel(db.Model):

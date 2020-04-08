@@ -10,7 +10,6 @@ flask = "*"
 flask-restful = "*"
 flask-cors = "*"
 flask-talisman = "*"
-arrow = "*"
 flask-sqlalchemy = "*"
 gunicorn = "*"
 

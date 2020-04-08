@@ -1,6 +1,5 @@
 from flask_restful import Resource, reqparse
 import datetime
-import arrow
 
 from models.issue import IssueModel
 
