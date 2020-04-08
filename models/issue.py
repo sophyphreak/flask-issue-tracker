@@ -63,16 +63,6 @@ class IssueModel(db.Model):
         _open,
         _id,
     ):
-        print(
-            project_name,
-            issue_title,
-            issue_text,
-            created_by,
-            assigned_to,
-            status_text,
-            _open,
-            _id,
-        )
         query = cls.query.filter_by(project_name=project_name)
         if not issue_title is None:
             query = query.filter_by(issue_title=issue_title)
