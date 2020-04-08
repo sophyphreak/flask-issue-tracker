@@ -12,6 +12,7 @@ flask-cors = "*"
 flask-talisman = "*"
 arrow = "*"
 flask-sqlalchemy = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
