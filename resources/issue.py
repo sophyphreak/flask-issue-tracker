@@ -70,7 +70,7 @@ class Issue(Resource):
         if issue is None:
             return {
                 "error": f"could not update {_id}",
-                "message": f"issue with id if {id} does not exist",
+                "message": f"issue with id of {_id} does not exist",
             }
 
         issue_title = data["issue_title"]
