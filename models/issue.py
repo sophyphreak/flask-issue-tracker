@@ -2,8 +2,9 @@ from db import db
 import datetime
 import arrow
 
+
 class IssueModel(db.Model):
-    __tablename__ = 'issue'
+    __tablename__ = "issue"
     _id = db.Column(db.Integer, primary_key=True)
     issue_title = db.Column(db.String(80))
     issue_text = db.Column(db.String(80))
@@ -15,7 +16,17 @@ class IssueModel(db.Model):
     updated_on = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     project_name = db.Column(db.String(80))
 
-    def __init__(self, issue_title, issue_text, created_by, assigned_to, status_text, _open, created_on, project_name):
+    def __init__(
+        self,
+        issue_title,
+        issue_text,
+        created_by,
+        assigned_to,
+        status_text,
+        _open,
+        created_on,
+        project_name,
+    ):
         self.issue_title = issue_title
         self.issue_text = issue_text
         self.created_by = created_by
@@ -28,16 +39,16 @@ class IssueModel(db.Model):
 
     def json(self):
         return {
-            'id': self._id,
-            'issue_title': self.issue_title,
-            'issue_text': self.issue_text,
-            'created_by': self.created_by,
-            'assigned_to': self.assigned_to,
-            'status_text': self.status_text,
-            'open': self._open,
-            'created_on': self.created_on.isoformat(),
-            'updated_on': self.updated_on.isoformat(),
-            'project_name': self.project_name
+            "id": self._id,
+            "issue_title": self.issue_title,
+            "issue_text": self.issue_text,
+            "created_by": self.created_by,
+            "assigned_to": self.assigned_to,
+            "status_text": self.status_text,
+            "open": self._open,
+            "created_on": self.created_on.isoformat(),
+            "updated_on": self.updated_on.isoformat(),
+            "project_name": self.project_name,
         }
 
     @classmethod
