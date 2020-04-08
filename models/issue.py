@@ -39,7 +39,7 @@ class IssueModel(db.Model):
 
     def json(self):
         return {
-            "id": self._id,
+            "_id": self._id,
             "issue_title": self.issue_title,
             "issue_text": self.issue_text,
             "created_by": self.created_by,
