@@ -81,7 +81,7 @@ class Issue(Resource):
         _open = data["open"]
 
         if not _open is None:
-            _open = _open == 'True' or _open == 'true'
+            _open = _open == "True" or _open == "true"
         if issue_title:
             issue.issue_title = issue_title
         if issue_text:
@@ -138,7 +138,7 @@ class Issue(Resource):
         _id = data["_id"]
 
         if not _open is None:
-            _open = _open == 'True' or _open == 'true'
+            _open = _open == "True" or _open == "true"
 
         raw_issue_list = IssueModel.find_by_filter(
             project_name=project_name,
