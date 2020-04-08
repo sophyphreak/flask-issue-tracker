@@ -52,8 +52,44 @@ class IssueModel(db.Model):
         }
 
     @classmethod
-    def find_by_project_name(cls, project_name):
-        return cls.query.filter_by(project_name=project_name).all()
+    def find_by_filter(
+        cls,
+        project_name,
+        issue_title,
+        issue_text,
+        created_by,
+        assigned_to,
+        status_text,
+        _open,
+        _id,
+    ):
+        print(
+            project_name,
+            issue_title,
+            issue_text,
+            created_by,
+            assigned_to,
+            status_text,
+            _open,
+            _id,
+        )
+        query = cls.query.filter_by(project_name=project_name)
+        if not issue_title is None:
+            query = query.filter_by(issue_title=issue_title)
+        if not issue_text is None:
+            query = query.filter_by(issue_text=issue_text)
+        if not created_by is None:
+            query = query.filter_by(created_by=created_by)
+        if not assigned_to is None:
+            query = query.filter_by(assigned_to=assigned_to)
+        if not status_text is None:
+            query = query.filter_by(status_text=status_text)
+        if not _open is None:
+            query = query.filter_by(_open=_open)
+        if not _id is None:
+            query = query.filter_by(_id=_id)
+
+        return query.all()
 
     @classmethod
     def find_by_id(cls, _id):
@@ -61,4 +97,8 @@ class IssueModel(db.Model):
 
     def save_to_db(self):
         db.session.add(self)
+        db.session.commit()
+
+    def delete_from_db(self):
+        db.session.delete(self)
         db.session.commit()
