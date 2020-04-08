@@ -48,6 +48,6 @@ class Issue(Resource):
         created_on = datetime.datetime.utcnow()
         _open = True
 
-        new_issue = IssueModel(issue_title, issue_text, created_by, assigned_to, status_text,  _open, created_on, project_name)
+        new_issue = IssueModel(issue_title=issue_title, issue_text=issue_text, created_by=created_by, assigned_to=assigned_to, status_text=status_text,  _open=_open, created_on=created_on, project_name=project_name)
         new_issue.save_to_db()
         return new_issue.json(), 201
